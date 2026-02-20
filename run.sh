@@ -2,9 +2,9 @@
 
 
 export CA_BASEDIR=`pwd`/ca 
-export  EST_BASEDIR=`pwd`
+export EST_BASEDIR=`pwd`
 
-if ! [ -e $CA_BASEDIR/cakey.pem $CA_BASEDIR/cacert.pem -a -e  $EST_BASEDIR/certs/cacert.pem -o -e  $EST_BASEDIR/certs/cacert.p7b ]
+if ! [ -e $CA_BASEDIR/cakey.pem -a -e  $CA_BASEDIR/cacert.pem -a -e  $EST_BASEDIR/certs/cacert.pem -a -e  $EST_BASEDIR/certs/cacert.p7b ]
 then
  rm -f  $CA_BASEDIR/cakey.pem $CA_BASEDIR/cacert.pem   $EST_BASEDIR/certs/cacert.pem $EST_BASEDIR/certs/cacert.p7b
  rm -rf ca/certs ca/csr_dir certs csr_req
