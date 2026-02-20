@@ -1,7 +1,21 @@
 #!/usr/bin/env bash
 #Figure out directory where this script is located and set needed environment variables.
 #koverflow.com/questions/59895/get-the-source-directory-of-a-bash-script-from-within-the-script-itself
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+
+# Detect shell and get script source
+if [ -n "$BASH_VERSION" ]; then
+    # Bash
+    SCRIPT_SOURCE="${BASH_SOURCE[0]}"
+elif [ -n "$ZSH_VERSION" ]; then
+    # Zsh
+    SCRIPT_SOURCE="${(%):-%x}"
+else
+    echo "Unsupported shell"
+    exit 1
+fi
+
+DIR="$( cd "$( dirname "${SCRIPT_SOURCE}" )" >/dev/null 2>&1 && pwd )"
 
 #There is most propably better way to dig out correct directories
 #but... this is how it's now implementeded, sorry :-)
