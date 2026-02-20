@@ -2,7 +2,7 @@
 
 
  export CA_BASEDIR=`pwd`/ca 
- EST_BASEDIR=`pwd`
+export  EST_BASEDIR=`pwd`
 
 
  rm -f  $CA_BASEDIR/cakey.pem $CA_BASEDIR/cacert.pem   $EST_BASEDIR/certs/cacert.pem $EST_BASEDIR/certs/cacert.p7b
